@@ -1,7 +1,7 @@
 datetime
 yfinance
 pandas
-pandas_datareader.data
+pandas_datareader
 plotly.express
 plotly.graph_objects
 dash_bootstrap_components
