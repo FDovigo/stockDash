@@ -6,3 +6,4 @@ plotly
 plotly.express
 dash
 dash_bootstrap_components
+gunicorn
