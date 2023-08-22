@@ -282,6 +282,7 @@ stockInDash, figInDash = ShowInDash(lStockValue, lStockReturn, sBestStocks)
 #Web Layout
 ##====================================================================================================##
 app = dash.Dash(__name__, external_stylesheets = [dbc.themes.LUX])
+server = app.server
 
 app.layout = dbc.Container(children=[
     
