@@ -262,19 +262,19 @@ def FigureBuild(figInDash, stock):
 #Stock Portfolio and Backtest Codes(based on Long, Medium and Short Term functions)
 ##====================================================================================================##
 
-#Stock Portfolio
-lStockValue, lStockReturn, lBestStocks = LongStockFilter(archive, presentDate, pastDate, lSample)
-mBestStocks = MidStockFilter(lStockReturn, lBestStocks, mSample, mid)
-sBestStocks = ShortStockFilter(lStockReturn, mBestStocks, sSample, short)
+# #Stock Portfolio
+# lStockValue, lStockReturn, lBestStocks = LongStockFilter(archive, presentDate, pastDate, lSample)
+# mBestStocks = MidStockFilter(lStockReturn, lBestStocks, mSample, mid)
+# sBestStocks = ShortStockFilter(lStockReturn, mBestStocks, sSample, short)
 
-#BackTest (need to automize Date and Interaction selection)
-chosenDate = dt.date(2021, 12, 30)
-nIteraction = 0
-BackTestRevenue = BackTest(archive, chosenDate, lSample, mSample, sSample, long, mid, short, nIteraction)
-print('BackTest, com início em ' + str(chosenDate) + ' e ' + str(nIteraction) + ' Iterações, resultou em: '+str(round(BackTestRevenue,2)) + '%')
+# #BackTest (need to automize Date and Interaction selection)
+# chosenDate = dt.date(2021, 12, 30)
+# nIteraction = 0
+# BackTestRevenue = BackTest(archive, chosenDate, lSample, mSample, sSample, long, mid, short, nIteraction)
+# print('BackTest, com início em ' + str(chosenDate) + ' e ' + str(nIteraction) + ' Iterações, resultou em: '+str(round(BackTestRevenue,2)) + '%')
 
-#Dash
-stockInDash, figInDash = ShowInDash(lStockValue, lStockReturn, sBestStocks)
+# #Dash
+# stockInDash, figInDash = ShowInDash(lStockValue, lStockReturn, sBestStocks)
 
 
 
