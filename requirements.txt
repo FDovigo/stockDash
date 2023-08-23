@@ -1,9 +1,11 @@
 datetime
+request
 yfinance
+Image
+BytesIO
 pandas
 pandas_datareader
-plotly
 plotly.express
-dash
+plotly.graph_objects
 dash_bootstrap_components
-gunicorn
+dash
