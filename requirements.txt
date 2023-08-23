@@ -1,0 +1,10 @@
+datetime
+yfinance
+uvicorn
+pandas
+pandas_datareader.data
+plotly.express
+plotly.graph_objects
+dash_bootstrap_components
+dash
+dash.dependencies
