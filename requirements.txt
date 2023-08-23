@@ -1,8 +1,5 @@
 datetime
-request
 yfinance
-Image
-BytesIO
 pandas
 pandas_datareader
 plotly.express
