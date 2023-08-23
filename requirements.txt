@@ -1,6 +1,7 @@
+gunicorn
+
 datetime
 yfinance
-uvicorn
 pandas
 pandas_datareader
 plotly.express
