@@ -25,12 +25,12 @@ yf.pdr_override()
 archive = "https://raw.githubusercontent.com/FDovigo/stockDash/de8be9054bc27e114218634759d1aeec57833951/IBrX100.csv"
 image = "https://github.com/FDovigo/imageRepository/blob/63e97178a9b32837b76ea86df49991a1d639c390/logocinza.png"
 
-long = 45
-mid = 15
-short = 3
+long = 15
+mid = 5
+short = 1
 
-lSample = 24
-mSample = 12
+lSample = 12
+mSample = 9
 sSample = 6
 
 presentDate = dt.date(2022, 12, 30)
