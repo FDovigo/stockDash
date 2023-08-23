@@ -2,9 +2,8 @@ datetime
 yfinance
 uvicorn
 pandas
-pandas_datareader.data
+pandas_datareader
 plotly.express
-plotly.graph_objects
+plotly
 dash_bootstrap_components
 dash
-dash.dependencies
