@@ -30,7 +30,7 @@ server = app.server
 
 #Variables
 archive = "https://raw.githubusercontent.com/FDovigo/stockDash/de8be9054bc27e114218634759d1aeec57833951/IBrX100.csv"
-image = "https://github.com/FDovigo/imageRepository/blob/63e97178a9b32837b76ea86df49991a1d639c390/logocinza.png"
+image = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/logocinza.jpg"
 response = requests.get(image)
 img = Image.open(BytesIO(response.content)),
 
@@ -298,15 +298,15 @@ app.layout = dbc.Container(children=[
 
         dbc.Col([
 
-            html.H3("Gerador de Carteira Mensal", className = "text-primary", 
-                    style = {"margin-top": "20px", "margin-left": "15px"}),
+            html.H1("Sharpy", className = "Heading 1", 
+                    style = {"margin-top": "20px", "margin-left": "20px"}),
 
-            html.P("By FinancEEL", className = "text-info",
-                    style = {"margin-left": "15px"}),
+            html.H4("By FinancEEL", className = "text-info",
+                    style = {"margin-left": "20px"}),
                     
             html.Hr(),
 
-            html.H5("Informe a Data Inicial da Carteira", className = "text-primary",
+            html.H4("Informe a Data Inicial da Carteira", className = "text-primary",
                     style = {"margin-top": "60px", "text-align":"center"}),
 
             html.Div([            
@@ -317,7 +317,7 @@ app.layout = dbc.Container(children=[
                     date = '2022-12-31',
                     display_format = "MMM D, YY",
                     day_size = 45,
-                    style = {"border": "0px solid black", "margin-top": "30px"},
+                    style = {"border": "0px solid black", "margin-top": "40px"},
                 ),
             ], style = {"display" : "flex", "justifyContent" : "center"}),
 
@@ -327,11 +327,11 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock1", style = {"color": "#a9a9a9", "text-align":"center"}),
-                            html.H2(id = "value1", className = "text-primary-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock1", className = "text-body-secondary", style = {"text-align":"center"}),
+                            html.H2(id = "value1", className = "text-dark-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
-                        style = {"margin-top": "75px",
+                        style = {"margin-top": "100px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
                 ], md = 3),
@@ -339,11 +339,11 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([ 
                         dbc.CardBody([
-                            html.H4(id = "stock2", style = {"color": "#a9a9a9", "text-align":"center"}),
-                            html.H2(id = "value2", className = "text-primary-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock2", className = "text-body-secondary", style = {"text-align":"center"}),
+                            html.H2(id = "value2", className = "text-dark-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
-                        style = {"margin-top": "75px",
+                        style = {"margin-top": "100px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
                 ], md = 3),
@@ -351,11 +351,11 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock3", style = {"color": "#a9a9a9", "text-align":"center"}),
-                            html.H2(id = "value3", className = "text-primary-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock3", className = "text-body-secondary", style = {"text-align":"center"}),
+                            html.H2(id = "value3", className = "text-dark-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
-                        style = {"margin-top": "75px",
+                        style = {"margin-top": "100px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
                 ], md = 3), 
@@ -366,11 +366,11 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock4", style = {"color": "#a9a9a9", "text-align":"center"}),
-                            html.H2(id = "value4", className = "text-primary-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock4", className = "text-body-secondary", style = {"text-align":"center"}),
+                            html.H2(id = "value4", className = "text-dark-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
-                        style = {"margin-top": "75px",
+                        style = {"margin-top": "100px",
                                  "resize": "both",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
@@ -379,11 +379,11 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([ 
                         dbc.CardBody([
-                            html.H4(id = "stock5", style = {"color": "#a9a9a9", "text-align":"center"}),
-                            html.H2(id = "value5", className = "text-primary-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock5", className = "text-body-secondary", style = {"text-align":"center"}),
+                            html.H2(id = "value5", className = "text-dark-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
-                        style = {"margin-top": "75px",
+                        style = {"margin-top": "100px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
                 ], md = 3),
@@ -391,21 +391,19 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock6", style = {"color": "#a9a9a9", "text-align":"center"}),
-                            html.H2(id = "value6", className = "text-primary-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock6", className = "text-body-secondary", style = {"text-align":"center"}),
+                            html.H2(id = "value6", className = "text-dark-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
-                        style = {"margin-top": "75px","margin-bottom": "100px",
+                        style = {"margin-top": "100px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
                 ], md = 3), 
             ], style = {"justify-content": "space-evenly"}),
 
             html.Div([
-
-                html.Img(img, height = 100),
-                html.P()
-            ], style = {"display" : "flex", "justifyContent" : "center", "margin-top": "120px"}),
+                html.Img(src = image, height = 160),
+            ], style = {"display" : "flex", "justifyContent" : "center", "margin-top": "180px","margin-bottom": "180px"}),
 
         ], md = 6),
 
