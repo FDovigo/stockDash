@@ -1,6 +1,10 @@
+import gunicorn
+
 import datetime as dt
 import yfinance as yf
-import gunicorn
+import requests
+from PIL import Image
+from io import BytesIO
 
 import pandas as pd
 import pandas_datareader.data as web
@@ -27,6 +31,8 @@ server = app.server
 #Variables
 archive = "https://raw.githubusercontent.com/FDovigo/stockDash/de8be9054bc27e114218634759d1aeec57833951/IBrX100.csv"
 image = "https://github.com/FDovigo/imageRepository/blob/63e97178a9b32837b76ea86df49991a1d639c390/logocinza.png"
+response = requests.get(image)
+img = Image.open(BytesIO(response.content)),
 
 long = 180
 mid = 60
@@ -232,9 +238,7 @@ def FigureBuild(figInDash, stock):
     fig = px.area(figInDash[str(stock)], range_y = [-20, 30])
     fig.update_layout(
         template = "simple_white",
-        autosize = True,
-        #paper_bgcolor = "#FFFFFF",
-        #plot_bgcolor = "#FFFFFF",
+        #autosize = True,
         margin = go.layout.Margin(l = 25, r = 25, t = 15, b = 15),
         yaxis_title = None,
         xaxis_title = None,
@@ -287,6 +291,7 @@ def FigureBuild(figInDash, stock):
 #Web Layout
 ##====================================================================================================##
 
+
 app.layout = dbc.Container(children=[
     
     dbc.Row([ 
@@ -294,9 +299,11 @@ app.layout = dbc.Container(children=[
         dbc.Col([
 
             html.H3("Gerador de Carteira Mensal", className = "text-primary", 
-                    style = {"margin-top": "20px", "margin-left": "25px"}),
+                    style = {"margin-top": "20px", "margin-left": "15px"}),
+
             html.P("By FinancEEL", className = "text-info",
-                    style = {"margin-left": "25px"}),
+                    style = {"margin-left": "15px"}),
+                    
             html.Hr(),
 
             html.H5("Informe a Data Inicial da Carteira", className = "text-primary",
@@ -320,83 +327,85 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock1", style = {"color": "#a9a9a9"}),
-                            html.H2(id = "value1", className = "text-primary-emphasis"),
+                            html.H4(id = "stock1", style = {"color": "#a9a9a9", "text-align":"center"}),
+                            html.H2(id = "value1", className = "text-primary-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "75px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
-                ], style = {"margin-left":"auto"}, md = 3),
+                ], md = 3),
 
                 dbc.Col([
                     dbc.Card([ 
                         dbc.CardBody([
-                            html.H4(id = "stock2", style = {"color": "#a9a9a9"}),
-                            html.H2(id = "value2", className = "text-primary-emphasis"),
+                            html.H4(id = "stock2", style = {"color": "#a9a9a9", "text-align":"center"}),
+                            html.H2(id = "value2", className = "text-primary-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "75px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
-                ], style = {"margin-left":"30px", "margin-right":"30px"}, md = 3),
+                ], md = 3),
 
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock3", style = {"color": "#a9a9a9"}),
-                            html.H2(id = "value3", className = "text-primary-emphasis"),
+                            html.H4(id = "stock3", style = {"color": "#a9a9a9", "text-align":"center"}),
+                            html.H2(id = "value3", className = "text-primary-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "75px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
-                ], style = {"margin-right":"auto"}, md = 3), 
-            ]),
+                ], md = 3), 
+            ], style = {"justify-content": "space-evenly"}),
 
             dbc.Row([
 
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock4", style = {"color": "#a9a9a9"}),
-                            html.H2(id = "value4", className = "text-primary-emphasis"),
+                            html.H4(id = "stock4", style = {"color": "#a9a9a9", "text-align":"center"}),
+                            html.H2(id = "value4", className = "text-primary-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "75px",
+                                 "resize": "both",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
-                ], style = {"margin-left":"auto"}, md = 3),
+                ], md = 3),
 
                 dbc.Col([
                     dbc.Card([ 
                         dbc.CardBody([
-                            html.H4(id = "stock5", style = {"color": "#a9a9a9"}),
-                            html.H2(id = "value5", className = "text-primary-emphasis"),
+                            html.H4(id = "stock5", style = {"color": "#a9a9a9", "text-align":"center"}),
+                            html.H2(id = "value5", className = "text-primary-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "75px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
-                ], style = {"margin-left":"30px", "margin-right":"30px"}, md = 3),
+                ], md = 3),
 
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock6", style = {"color": "#a9a9a9"}),
-                            html.H2(id = "value6", className = "text-primary-emphasis"),
+                            html.H4(id = "stock6", style = {"color": "#a9a9a9", "text-align":"center"}),
+                            html.H2(id = "value6", className = "text-primary-emphasis", style = {"text-align":"center"}),
                         ])
                     ],  color = "light", outline = True, 
-                        style = {"margin-top": "75px",
+                        style = {"margin-top": "75px","margin-bottom": "100px",
                                 "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
                                 "color": "#FFFFFF"})
-                ], style = {"margin-right":"auto"}, md = 3), 
-            ]),
+                ], md = 3), 
+            ], style = {"justify-content": "space-evenly"}),
 
-            # html.Div([
-            #     html.Img(src = app.get_asset_url("logocinza.png"), height = 100),
-            #     #html.P()
-            # ], style = {"display" : "flex", "justifyContent" : "center", "margin-top": "120px"})
+            html.Div([
+
+                html.Img(img, height = 100),
+                html.P()
+            ], style = {"display" : "flex", "justifyContent" : "center", "margin-top": "120px"}),
 
         ], md = 6),
 
@@ -407,57 +416,57 @@ app.layout = dbc.Container(children=[
 
                 dbc.Col([
                     dbc.Card([
-                        dbc.CardHeader(id = "stockCD1", className = "text-light", style = {"text-align":"center"}),
-                        dcc.Graph(id = "line-map1", figure = {}, style = {"height":"85%"}), 
-                    ], color = "dark", style = {"height": "30vh"}),
-                ],style = {"margin-left": "auto", "margin-right": "15px"}, md = 5),
+                        dbc.CardHeader(id = "stockCD1", className = "text-light", style = {"text-align":"center", "font-size":"20px"}),
+                        dcc.Graph(id = "line-map1", style = {"height": "27vh"}), 
+                    ], style = {"margin-top": "20px"}, color = "dark"),
+                ], md = 5),
 
                 dbc.Col([
                     dbc.Card([
-                        dbc.CardHeader(id = "stockCD2", className = "text-light", style = {"text-align":"center"}),
-                        dcc.Graph(id = "line-map2", figure = {}, style = {"height":"85%"}), 
-                    ], color = "dark", style = {"height": "30vh"}),
-                ], style = {"margin-bottom": "10px", "margin-left": "15px", "margin-right": "auto"}, md = 5),
-            ], style = {"margin-top": "20px"}),
+                        dbc.CardHeader(id = "stockCD2", className = "text-light", style = {"text-align":"center", "font-size":"20px"}),
+                        dcc.Graph(id = "line-map2", style = {"height": "27vh"}), 
+                    ], style = {"margin-top": "20px"}, color = "dark"),
+                ], md = 5),
+
+            ], style = {"justify-content": "space-evenly"}),
 
             dbc.Row([
 
                 dbc.Col([
                     dbc.Card([
-                        dbc.CardHeader(id = "stockCD3", className = "text-light", style = {"text-align":"center"}),
-                        dcc.Graph(id = "line-map3", figure = {}, style = {"height":"85%"}), 
-                    ], color = "dark", style = {"height": "30vh"}),
-                ],style = {"margin-left": "auto", "margin-right": "15px"}, md = 5),
+                        dbc.CardHeader(id = "stockCD3", className = "text-light", style = {"text-align":"center", "font-size":"20px"}),
+                        dcc.Graph(id = "line-map3", style = {"height": "27vh"}), 
+                    ], style = {"margin-top": "20px"}, color = "dark"),
+                ], md = 5),
 
                 dbc.Col([
                     dbc.Card([
-                        dbc.CardHeader(id = "stockCD4", className = "text-light", style = {"text-align":"center"}),
-                        dcc.Graph(id = "line-map4", figure = {}, style = {"height":"85%"}), 
-                    ], color = "dark", style = {"height": "30vh"}),
-                ], style = {"margin-bottom": "10px", "margin-left": "15px", "margin-right": "auto"}, md = 5),
-            ], style = {"margin-top": "15px"}),
+                        dbc.CardHeader(id = "stockCD4", className = "text-light", style = {"text-align":"center", "font-size":"20px"}),
+                        dcc.Graph(id = "line-map4", style = {"height": "27vh"}), 
+                    ], style = {"margin-top": "20px"}, color = "dark"),
+                ], md = 5),
+            ], style = {"justify-content": "space-evenly"}),
 
             dbc.Row([
 
                 dbc.Col([
                     dbc.Card([
-                        dbc.CardHeader(id = "stockCD5", className = "text-light", style = {"text-align":"center"}),
-                        dcc.Graph(id = "line-map5", figure = {}, style = {"height":"85%"}), 
-                    ], color = "dark", style = {"height": "30vh"}),
-                ],style = {"margin-left": "auto", "margin-right": "15px"}, md = 5),
+                        dbc.CardHeader(id = "stockCD5", className = "text-light", style = {"text-align":"center", "font-size":"20px"}),
+                        dcc.Graph(id = "line-map5", style = {"height": "27vh"}), 
+                    ], style = {"margin-top": "20px"}, color = "dark"),
+                ], md = 5),
 
                 dbc.Col([
                     dbc.Card([
-                        dbc.CardHeader(id = "stockCD6", className = "text-light", style = {"text-align":"center"}),
-                        dcc.Graph(id = "line-map6", figure = {}, style = {"height":"85%"}), 
-                    ], color = "dark", style = {"height": "30vh"}),
-                ], style = {"margin-bottom": "10px", "margin-left": "15px", "margin-right": "auto"}, md = 5),
-            ], style = {"margin-top": "15px"}),
+                        dbc.CardHeader(id = "stockCD6", className = "text-light", style = {"text-align":"center", "font-size":"20px"}),
+                        dcc.Graph(id = "line-map6", style = {"height": "27vh"}), 
+                    ], style = {"margin-top": "20px"}, color = "dark"),
+                ], md = 5),
+            ], style = {"justify-content": "space-evenly"}),
 
-            
-        ], md = 6)
+        ], md = 6),
 
-    ], className = "g-0")
+    ], className = "g-0"),
 ], fluid = True)
 
 
@@ -521,12 +530,12 @@ def update(date):
     #Dash
     stockInDash, figInDash = ShowInDash(lStockValue, lStockReturn, sBestStocks)
 
-    stock1 = stockInDash.index[0]
-    stock2 = stockInDash.index[1]
-    stock3 = stockInDash.index[2]
-    stock4 = stockInDash.index[3]
-    stock5 = stockInDash.index[4]
-    stock6 = stockInDash.index[5]
+    stock1 = (stockInDash.index[0]).split(".")[0]
+    stock2 = (stockInDash.index[1]).split(".")[0]
+    stock3 = (stockInDash.index[2]).split(".")[0]
+    stock4 = (stockInDash.index[3]).split(".")[0]
+    stock5 = (stockInDash.index[4]).split(".")[0]
+    stock6 = (stockInDash.index[5]).split(".")[0]
 
     value1 = round(stockInDash[0], 2)
     value2 = round(stockInDash[1], 2)
@@ -546,12 +555,13 @@ def update(date):
     stockCD6 = stock6
 
     #Figure
-    fig1 = FigureBuild(figInDash, stock1)
-    fig2 = FigureBuild(figInDash, stock2)
-    fig3 = FigureBuild(figInDash, stock3)
-    fig4 = FigureBuild(figInDash, stock4)
-    fig5 = FigureBuild(figInDash, stock5)
-    fig6 = FigureBuild(figInDash, stock6)
+    fig1 = FigureBuild(figInDash, stockInDash.index[0])
+    fig2 = FigureBuild(figInDash, stockInDash.index[1])
+    fig3 = FigureBuild(figInDash, stockInDash.index[2])
+    fig4 = FigureBuild(figInDash, stockInDash.index[3])
+    fig5 = FigureBuild(figInDash, stockInDash.index[4])
+    fig6 = FigureBuild(figInDash, stockInDash.index[5])
+
 
    
     return (stock1, stock2, stock3, stock4, stock5, stock6, 
@@ -565,7 +575,3 @@ def update(date):
 
 if __name__ == "__main__":
     app.run_server(debug = True)
-
-
-# if __name__ == "__main__":
-#     gunicorn.run('app:app', host = '0.0.0.0', port = 8050)
