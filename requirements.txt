@@ -2,9 +2,14 @@ gunicorn
 
 datetime
 yfinance
+requests
+pyplot
+io
+
 pandas
 pandas_datareader
 plotly.express
 plotly
+
 dash_bootstrap_components
 dash
