@@ -3,7 +3,6 @@ gunicorn
 datetime
 yfinance
 requests
-pyplot
 io
 
 pandas
