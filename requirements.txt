@@ -3,6 +3,8 @@ gunicorn
 datetime
 yfinance
 requests
+pillow
+Image
 
 pandas
 pandas_datareader
