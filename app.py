@@ -299,15 +299,15 @@ app.layout = dbc.Container(children=[
         dbc.Col([
 
             html.H1("Sharpy", className = "Heading 1", 
-                    style = {"margin-top": "2vh", "margin-left": "2vh"}),
+                    style = {"margin-top": "2vh", "margin-left": "2vh", "font-size": "4vh"}),
 
-            html.H4("By FinancEEL", className = "text-info",
-                    style = {"margin-left": "2vh"}),
+            html.P("By FinancEEL", className = "text-info",
+                    style = {"margin-left": "2vh", "font-size": "2vh"}),
                     
             html.Hr(),
 
-            html.H4("Informe a Data Inicial da Carteira", className = "text-primary",
-                    style = {"margin-top": "4vh", "text-align":"center"}),
+            html.P("Informe a Data Inicial da Carteira", className = "text-primary",
+                    style = {"margin-top": "4vh", "text-align":"center", "font-size": "2vh"}),
 
             html.Div([            
                 dcc.DatePickerSingle(
@@ -327,8 +327,8 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock1", className = "text-body-secondary", style = {"text-align":"center"}),
-                            html.H2(id = "value1", className = "text-dark-emphasis", style = {"text-align":"center"}),
+                            html.H1(id = "stock1", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                            html.H1(id = "value1", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "6vh",
@@ -339,8 +339,8 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([ 
                         dbc.CardBody([
-                            html.H4(id = "stock2", className = "text-body-secondary", style = {"text-align":"center"}),
-                            html.H2(id = "value2", className = "text-dark-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock2", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                            html.H2(id = "value2", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "6vh",
@@ -351,8 +351,8 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock3", className = "text-body-secondary", style = {"text-align":"center"}),
-                            html.H2(id = "value3", className = "text-dark-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock3", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                            html.H2(id = "value3", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "6vh",
@@ -366,8 +366,8 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock4", className = "text-body-secondary", style = {"text-align":"center"}),
-                            html.H2(id = "value4", className = "text-dark-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock4", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                            html.H2(id = "value4", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "6vh",
@@ -378,8 +378,8 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([ 
                         dbc.CardBody([
-                            html.H4(id = "stock5", className = "text-body-secondary", style = {"text-align":"center"}),
-                            html.H2(id = "value5", className = "text-dark-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock5", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                            html.H2(id = "value5", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "6vh",
@@ -390,8 +390,8 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.H4(id = "stock6", className = "text-body-secondary", style = {"text-align":"center"}),
-                            html.H2(id = "value6", className = "text-dark-emphasis", style = {"text-align":"center"}),
+                            html.H4(id = "stock6", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                            html.H2(id = "value6", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
                         ])
                     ],  color = "light", outline = True, 
                         style = {"margin-top": "6vh",
