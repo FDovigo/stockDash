@@ -536,11 +536,11 @@ def update(date):
     stock6 = (stockInDash.index[5]).split(".")[0]
 
     value1 = "R$ "+ str(round(stockInDash[0], 2)) 
-    value2 = "R$ "+ round(stockInDash[1], 2)
-    value3 = "R$ "+ round(stockInDash[2], 2)
-    value4 = "R$ "+ round(stockInDash[3], 2)
-    value5 = "R$ "+ round(stockInDash[4], 2)
-    value6 = "R$ "+ round(stockInDash[5], 2)
+    value2 = "R$ "+ str(round(stockInDash[1], 2))
+    value3 = "R$ "+ str(round(stockInDash[2], 2))
+    value4 = "R$ "+ str(round(stockInDash[3], 2))
+    value5 = "R$ "+ str(round(stockInDash[4], 2))
+    value6 = "R$ "+ str(round(stockInDash[5], 2))
 
 
     #Graphic
