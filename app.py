@@ -29,7 +29,7 @@ server = app.server
 ##====================================================================================================##
 
 #Variables
-archive = "https://github.com/FDovigo/dataRepository/blob/f3289eeded7b08ff64ed3fb90351f18d36209608/IBrx50.csv"
+archive = "https://raw.githubusercontent.com/FDovigo/dataRepository/f3289eeded7b08ff64ed3fb90351f18d36209608/IBrx50.csv"
 image = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/logocinza.jpg"
 response = requests.get(image)
 img = Image.open(BytesIO(response.content)),
