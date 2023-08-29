@@ -233,6 +233,7 @@ def BackTest(archive, chosenDate, lSample, mSample, sSample, long, mid, short, n
 
     return sumRevenue
 
+#Graph Construction for Dashboard
 def FigureBuild(figInDash, stock):
 
     fig = px.area(figInDash[str(stock)], range_y = [-20, 30])
@@ -294,8 +295,10 @@ def FigureBuild(figInDash, stock):
 
 app.layout = dbc.Container(children=[
     
+    #Row that contains all the Layout
     dbc.Row([ 
 
+        #Left Column
         dbc.Col([
 
             html.H1("Sharpy", className = "Heading 1", 
@@ -322,83 +325,88 @@ app.layout = dbc.Container(children=[
             ], style = {"display" : "flex", "justifyContent" : "center"}),
 
 
-            dbc.Row([
+            dcc.Loading(id = "loading1", type = "circle", children = [
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardBody([
-                            html.H1(id = "stock1", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
-                            html.H1(id = "value1", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
-                        ])
-                    ],  color = "light", outline = True, 
-                        style = {"margin-top": "6vh",
-                                "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
-                                "color": "#FFFFFF"})
-                ], md = 3),
+                dbc.Row([
 
-                dbc.Col([
-                    dbc.Card([ 
-                        dbc.CardBody([
-                            html.H4(id = "stock2", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
-                            html.H2(id = "value2", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
-                        ])
-                    ],  color = "light", outline = True, 
-                        style = {"margin-top": "6vh",
-                                "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
-                                "color": "#FFFFFF"})
-                ], md = 3),
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardBody([
+                                html.H1(id = "stock1", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                                html.H1(id = "value1", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
+                            ])
+                        ],  color = "light", outline = True, 
+                            style = {"margin-top": "6vh",
+                                    "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
+                                    "color": "#FFFFFF"})
+                    ], md = 3),
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardBody([
-                            html.H4(id = "stock3", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
-                            html.H2(id = "value3", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
-                        ])
-                    ],  color = "light", outline = True, 
-                        style = {"margin-top": "6vh",
-                                "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
-                                "color": "#FFFFFF"})
-                ], md = 3), 
-            ], style = {"justify-content": "space-evenly"}),
+                    dbc.Col([
+                        dbc.Card([ 
+                            dbc.CardBody([
+                                html.H4(id = "stock2", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                                html.H2(id = "value2", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
+                            ])
+                        ],  color = "light", outline = True, 
+                            style = {"margin-top": "6vh",
+                                    "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
+                                    "color": "#FFFFFF"})
+                    ], md = 3),
 
-            dbc.Row([
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardBody([
+                                html.H4(id = "stock3", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                                html.H2(id = "value3", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
+                            ])
+                        ],  color = "light", outline = True, 
+                            style = {"margin-top": "6vh",
+                                    "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
+                                    "color": "#FFFFFF"})
+                    ], md = 3), 
+                ], style = {"justify-content": "space-evenly"}),
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardBody([
-                            html.H4(id = "stock4", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
-                            html.H2(id = "value4", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
-                        ])
-                    ],  color = "light", outline = True, 
-                        style = {"margin-top": "6vh",
-                                "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
-                                "color": "#FFFFFF"})
-                ], md = 3),
 
-                dbc.Col([
-                    dbc.Card([ 
-                        dbc.CardBody([
-                            html.H4(id = "stock5", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
-                            html.H2(id = "value5", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
-                        ])
-                    ],  color = "light", outline = True, 
-                        style = {"margin-top": "6vh",
-                                "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
-                                "color": "#FFFFFF"})
-                ], md = 3),
+                dbc.Row([
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardBody([
-                            html.H4(id = "stock6", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
-                            html.H2(id = "value6", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
-                        ])
-                    ],  color = "light", outline = True, 
-                        style = {"margin-top": "6vh",
-                                "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
-                                "color": "#FFFFFF"})
-                ], md = 3), 
-            ], style = {"justify-content": "space-evenly"}),
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardBody([
+                                html.H4(id = "stock4", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                                html.H2(id = "value4", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
+                            ])
+                        ],  color = "light", outline = True, 
+                            style = {"margin-top": "6vh",
+                                    "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
+                                    "color": "#FFFFFF"})
+                    ], md = 3),
+
+                    dbc.Col([
+                        dbc.Card([ 
+                            dbc.CardBody([
+                                html.H4(id = "stock5", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                                html.H2(id = "value5", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
+                            ])
+                        ],  color = "light", outline = True, 
+                            style = {"margin-top": "6vh",
+                                    "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
+                                    "color": "#FFFFFF"})
+                    ], md = 3),
+
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardBody([
+                                html.H4(id = "stock6", className = "text-body-secondary", style = {"text-align":"center", "font-size": "2vh"}),
+                                html.H2(id = "value6", className = "text-dark-emphasis", style = {"text-align":"center", "font-size": "2.5vh"}),
+                            ])
+                        ],  color = "light", outline = True, 
+                            style = {"margin-top": "6vh",
+                                    "box-shadow": "0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 4px 20px 0 rgba(0, 0, 0, 0.19)",
+                                    "color": "#FFFFFF"})
+                    ], md = 3), 
+                ], style = {"justify-content": "space-evenly"}),
+
+            ]),
 
 
             html.Div([
@@ -408,59 +416,66 @@ app.layout = dbc.Container(children=[
         ], md = 6),
 
 
+        #Right Column
         dbc.Col([
 
-            dbc.Row([
+            dcc.Loading(id = "loading2", type = "cube", children = [
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader(id = "stockCD1", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
-                        dcc.Graph(id = "line-map1", style = {"height": "25vh"}), 
-                    ], style = {"margin-top": "2vh"}, color = "dark"),
-                ], md = 5),
+                dbc.Row([
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader(id = "stockCD2", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
-                        dcc.Graph(id = "line-map2", style = {"height": "25vh"}), 
-                    ], style = {"margin-top": "2vh"}, color = "dark"),
-                ], md = 5),
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader(id = "stockCD1", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
+                            dcc.Graph(id = "line-map1", style = {"height": "25vh"}), 
+                        ], style = {"margin-top": "2vh"}, color = "dark"),
+                    ], md = 5),
 
-            ], style = {"justify-content": "space-evenly"}),
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader(id = "stockCD2", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
+                            dcc.Graph(id = "line-map2", style = {"height": "25vh"}), 
+                        ], style = {"margin-top": "2vh"}, color = "dark"),
+                    ], md = 5),
 
-            dbc.Row([
+                ], style = {"justify-content": "space-evenly"}),
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader(id = "stockCD3", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
-                        dcc.Graph(id = "line-map3", style = {"height": "25vh"}), 
-                    ], style = {"margin-top": "2vh"}, color = "dark"),
-                ], md = 5),
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader(id = "stockCD4", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
-                        dcc.Graph(id = "line-map4", style = {"height": "25vh"}), 
-                    ], style = {"margin-top": "2vh"}, color = "dark"),
-                ], md = 5),
-            ], style = {"justify-content": "space-evenly"}),
+                dbc.Row([
 
-            dbc.Row([
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader(id = "stockCD3", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
+                            dcc.Graph(id = "line-map3", style = {"height": "25vh"}), 
+                        ], style = {"margin-top": "2vh"}, color = "dark"),
+                    ], md = 5),
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader(id = "stockCD5", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
-                        dcc.Graph(id = "line-map5", style = {"height": "25vh"}), 
-                    ], style = {"margin-top": "2vh"}, color = "dark"),
-                ], md = 5),
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader(id = "stockCD4", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
+                            dcc.Graph(id = "line-map4", style = {"height": "25vh"}), 
+                        ], style = {"margin-top": "2vh"}, color = "dark"),
+                    ], md = 5),
+                ], style = {"justify-content": "space-evenly"}),
 
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader(id = "stockCD6", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
-                        dcc.Graph(id = "line-map6", style = {"height": "25vh"}), 
-                    ], style = {"margin-top": "2vh"}, color = "dark"),
-                ], md = 5),
-            ], style = {"justify-content": "space-evenly"}),
+
+                dbc.Row([
+
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader(id = "stockCD5", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
+                            dcc.Graph(id = "line-map5", style = {"height": "25vh"}), 
+                        ], style = {"margin-top": "2vh"}, color = "dark"),
+                    ], md = 5),
+
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader(id = "stockCD6", className = "text-light", style = {"text-align":"center", "font-size":"2vh"}),
+                            dcc.Graph(id = "line-map6", style = {"height": "25vh"}), 
+                        ], style = {"margin-top": "2vh"}, color = "dark"),
+                    ], md = 5),
+                ], style = {"justify-content": "space-evenly"}),
+            
+            ])
 
         ], md = 6),
 
