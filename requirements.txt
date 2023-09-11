@@ -2,13 +2,11 @@ gunicorn
 
 datetime
 yfinance
-requests
-pillow
-Image
 
 pandas
 pandas_datareader
 plotly.express
+plotly.graph_objects
 plotly
 
 dash_bootstrap_components
