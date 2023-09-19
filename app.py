@@ -41,12 +41,12 @@ server = app.server
 
 #Variables
 archive = "https://raw.githubusercontent.com/FDovigo/dataRepository/f3289eeded7b08ff64ed3fb90351f18d36209608/IBrx50.csv"
-image = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/logocinza.jpg"
-imageIndex = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/index.jpg"
-imageSharp = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/sharpy.png"
-dev1 = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/dev1.jpg"
-dev2 = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/dev2.jpg"
-dev3 = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/dev3.jpg"
+imageLogo = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/Sharpy/logocinza.jpg"
+imageIndex = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/Sharpy/index.jpg"
+imageSharp = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/Sharpy/sharpy.png"
+dev1 = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/Sharpy/dev1.jpg"
+dev2 = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/Sharpy/dev2.jpg"
+dev3 = "https://raw.githubusercontent.com/FDovigo/imageRepository/main/Sharpy/dev3.jpg"
 
 long = 180
 mid = 60
@@ -437,7 +437,7 @@ leftSharpy = dbc.Container(children=[
 
 
         html.Div([
-                html.Img(src = image, style = {"height": "8vh", "margin-top": "14vh","margin-bottom": "14vh"})
+                html.Img(src = imageLogo, style = {"height": "8vh", "margin-top": "14vh","margin-bottom": "14vh"})
         ], style = {"display" : "flex", "justifyContent" : "center"})
 
     ], md = 12),
@@ -690,7 +690,7 @@ leftBacktest = dbc.Container(children=[
 
 
         html.Div([
-                html.Img(src = image, style = {"height": "8vh", "margin-top": "11vh","margin-bottom": "11vh"})
+                html.Img(src = imageLogo, style = {"height": "8vh", "margin-top": "11vh","margin-bottom": "11vh"})
         ], style = {"display" : "flex", "justifyContent" : "center"})
 
     ], md = 12),
@@ -1311,3 +1311,4 @@ def toggle_nav_collapse(n, is_open):
 
 if __name__ == "__main__":
     app.run_server(debug = True)
+
